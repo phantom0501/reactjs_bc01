@@ -56,6 +56,7 @@ export default class BTGioHangRedux extends Component {
   render() {
     return (
       <div className="container">
+        <h2 className="py-4">Danh Sách Sản Phẩm</h2>
         <div className="row">{this.renderSanPham()}</div>
         <div className="row mt-5">
           <div className="col-12">

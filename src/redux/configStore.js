@@ -1,22 +1,8 @@
 import { combineReducers, createStore } from "redux";
-
-const stateDefault = {
-  gioHang: [
-    {
-      maSP: 1,
-      tenSP: "Iphone",
-      gia: 1000,
-      hinhAnh: "./img/applePhone.jpg",
-      soLuong: 1,
-    },
-  ],
-};
+import { gioHangReducer } from "./reducers/GioHangReducer";
 
 const rootReducer = combineReducers({
-  gioHangReducer: (state = stateDefault, action) => {
-    return { ...state };
-  },
-  // state theo từng nghiệp vụ
+  gioHangReducer: gioHangReducer,
 });
 
 export const store = createStore(rootReducer);
