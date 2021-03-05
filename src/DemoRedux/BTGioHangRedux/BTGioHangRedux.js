@@ -57,10 +57,11 @@ export default class BTGioHangRedux extends Component {
     return (
       <div className="container">
         <h2 className="py-4">Danh Sách Sản Phẩm</h2>
-        <div className="row">{this.renderSanPham()}</div>
-        <div className="row mt-5">
+        <div className="row pb-5">{this.renderSanPham()}</div>
+        <hr />
+        <h3 className="text-left py-3">Giỏ hàng</h3>
+        <div className="row">
           <div className="col-12">
-            <h3>Giỏ hàng</h3>
             <GioHangRedux />
           </div>
         </div>

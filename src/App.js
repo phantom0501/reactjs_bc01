@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       {/* <LayoutExercises /> */}
       {/* <ProductManagement /> */}
-      {/* <BTGioHangRedux /> */}
-      <GameRedux />
+      <BTGioHangRedux />
+      {/* <GameRedux /> */}
     </div>
   );
 }

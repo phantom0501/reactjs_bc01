@@ -19,11 +19,12 @@ class GioHangRedux extends Component {
               </tr>
             )}
           </thead>
+
           <tbody>
             {this.props.gioHang.length === 0 ? (
               <tr>
-                <td>
-                  <h4 className="mt-5 text-danger">
+                <td style={{ borderTop: "none" }}>
+                  <h4 className="text-danger">
                     Không có sản phẩm nào. Tiếp tục mua sắm.
                   </h4>
                 </td>
