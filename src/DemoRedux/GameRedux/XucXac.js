@@ -1,40 +1,49 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class XucXac extends Component {
+class XucXac extends Component {
   render() {
     return (
       <div>
         <div className="row">
           <div className="col-4">
             <button
-              style={{ border: "none", outline: "none", padding: "80px" }}
+              style={{ border: "none", outline: "none", padding: "40px" }}
               className="bg-danger"
+              onClick={() => this.props.chonCaCuoc("Tài")}
             >
               <p style={{ width: "100%", height: "100%", fontSize: "80px" }}>
                 Tài
               </p>
             </button>
           </div>
+
           <div className="col-4">
             <div
               className="d-flex justify-content-center align-items-center"
               style={{ height: "100%" }}
             >
-              <div>
-                <img src="./img/1.png" alt="" width={70} />
-              </div>
-              <div>
-                <img src="./img/2.png" alt="" width={70} className="mx-4" />
-              </div>
-              <div>
-                <img src="./img/3.png" alt="" width={70} />
-              </div>
+              {this.props.mangXucXac.map((xucXac, index) => {
+                return (
+                  <div key={index}>
+                    <img
+                      style={{ borderRadius: "10px" }}
+                      src={xucXac.hinhAnh}
+                      alt={xucXac.hinhAnh}
+                      className="mx-2"
+                      width={70}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
+
           <div className="col-4">
             <button
-              style={{ border: "none", outline: "none", padding: "80px" }}
+              style={{ border: "none", outline: "none", padding: "40px" }}
               className="bg-dark"
+              onClick={() => this.props.chonCaCuoc("Xỉu")}
             >
               <p
                 style={{
@@ -53,3 +62,22 @@ export default class XucXac extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    mangXucXac: state.gameXucXacReducers.mangXucXac,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    chonCaCuoc: (banChon) => {
+      dispatch({
+        type: "CHON_CA_CUOC",
+        banChon,
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(XucXac);
